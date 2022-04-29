@@ -10,7 +10,7 @@ AMyActor::AMyActor()
 	PrimaryActorTick.bCanEverTick = true;
 	m_TotalDamage = 100;
 	m_MoveSpeed = 5.0f;
-	m_isAttackable = true;
+	m_isEngague = false;
 }
 
 // Called when the game starts or when spawned
@@ -24,4 +24,23 @@ void AMyActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 }
+
+void AMyActor::SetAttackable(bool isActive)
+{
+	m_isAttackable = isActive;
+}
+
+void AMyActor::PostInitProperties()
+{
+	Super::PostInitProperties();
+	SetAttackable(m_isEngague);
+}
+
+void AMyActor::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
+{
+	SetAttackable(m_isEngague);
+	Super::PostEditChangeProperty(PropertyChangedEvent);
+}
+
+
 
