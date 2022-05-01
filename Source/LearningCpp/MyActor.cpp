@@ -41,6 +41,3 @@ void AMyActor::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEven
 	SetAttackable(m_isEngague);
 	Super::PostEditChangeProperty(PropertyChangedEvent);
 }
-
-
-
