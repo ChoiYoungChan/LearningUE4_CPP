@@ -43,7 +43,7 @@ ACollidingPawn::ACollidingPawn()
 	// 파티클의 위치를 조정
 	m_OurParticleSystem->SetRelativeLocation(FVector(-20.0f, 0, 20.0f));
 	//
-	static ConstructorHelpers::FObjectFinder<UParticleSystem>_ParticleAsset(TEXT("/Game/StarterContent/Particle/P_Fire.P_Fire"));
+	static ConstructorHelpers::FObjectFinder<UParticleSystem>_ParticleAsset(TEXT("/Game/StarterContent/Particles/P_Fire.P_Fire"));
 	if (_ParticleAsset.Succeeded())
 	{
 		m_OurParticleSystem->SetTemplate(_ParticleAsset.Object);
