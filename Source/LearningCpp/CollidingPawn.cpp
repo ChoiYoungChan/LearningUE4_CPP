@@ -25,7 +25,7 @@ ACollidingPawn::ACollidingPawn()
 	UStaticMeshComponent* _SphereVisual = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("VisualRepressentation"));
 	_SphereVisual->SetupAttachment(RootComponent);
 	// 에셋을 찾아서 불러오기
-	static ConstructorHelpers::FObjectFinder<UStaticMesh>SphereVisualAsset(TEXT("/Game/StarterContent/Shapers/Shape_Sphere.Shape_Sphere"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh>SphereVisualAsset(TEXT("/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere"));
 
 	// 불러오는데 성공하면 메쉬와 위치 스케일을 설정
 	if (SphereVisualAsset.Succeeded())
