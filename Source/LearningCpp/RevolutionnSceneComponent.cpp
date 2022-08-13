@@ -14,7 +14,7 @@ URevolutionnSceneComponent::URevolutionnSceneComponent()
 	UStaticMeshComponent* m_mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("RevolutionMesh"));
 	m_mesh->SetupAttachment(this);
 	m_mesh->SetRelativeLocation(FVector(0, 100, 0));
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> m_meshAssert(TEXT("/Game/StarterContent/Shapers/Shape_Sphere.Shape_Sphere"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> m_meshAssert(TEXT("/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere"));
 	if (m_meshAssert.Succeeded())
 	{
 		m_mesh->SetStaticMesh(m_meshAssert.Object);
