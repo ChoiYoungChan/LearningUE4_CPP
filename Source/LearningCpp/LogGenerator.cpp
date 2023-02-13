@@ -2,6 +2,7 @@
 
 
 #include "LogGenerator.h"
+#include "LearningCpp.h"
 
 // Sets default values
 ALogGenerator::ALogGenerator()
@@ -28,6 +29,28 @@ void ALogGenerator::BeginPlay()
 	UE_LOG(LogTemp, Display, TEXT("Display"));
 	UE_LOG(LogTemp, Error, TEXT("Error"));
 	UE_LOG(LogTemp, Warning, TEXT("Warning"));
+
+	// 여기서 %s는 포인터를 받기 때문에 포인터 형식으로 주소를 넣는 방식이 기존의 C++와 다른점
+	FString _text = TEXT("FString text data");
+	UE_LOG(LogTemp, Warning, TEXT("Test Textdata Log = %s"), *_text);
+
+	// bool은 지정 형식이 없기 때문에 삼항연산자를 이용하여 출력
+	bool _isActive = true;
+	UE_LOG(LogTemp, Log, TEXT("Test Textdata Log = %s"), _isActive ? TEXT("true") : TEXT("false"));
+	
+	int _hp = 100;
+	UE_LOG(LogTemp, Log, TEXT("HP = %d"), _hp);
+
+	float _attackerSpeed = 1.0f;
+	UE_LOG(LogTemp, Log, TEXT("Speed = %f"), _attackerSpeed);
+
+	FVector _localLocation = GetActorLocation();
+	UE_LOG(LogTemp, Log, TEXT("Location = %s"), *_localLocation.ToString());
+	UE_LOG(LogTemp, Error, TEXT("Character Data = %s, HP = %d, Speed = %f, Loc = %s"), *_text, _hp,_attackerSpeed, *_localLocation.ToString());
+
+	FString _testData = TEXT("FString text data");
+	UE_LOG(LogTemp, Log, TEXT("Test Textdata Log = %s"), *_testData);
+	UE_LOG(CustomLogCategory, Display, TEXT("CustomLogCategory"));
 }
 
 // Called every frame
